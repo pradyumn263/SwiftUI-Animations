@@ -8,30 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var circleColorChanged = false
-    @State private var heartColorChanged = false
-    @State private var heartSizeChanged = false
+    @State private var isLoading = false
     
     var body: some View {
+        
         Circle()
-            .frame(width: 200, height: 200)
-            .foregroundColor(circleColorChanged ? Color(.systemGray5) : .red)
-            .overlay(
-                Image(systemName: "heart.fill")
-                    .font(.system(size: 100))
-                    .foregroundColor(heartColorChanged ? .red : .white)
-                    .scaleEffect(heartSizeChanged ? 1 : 0.6)
+            .stroke(Color(.systemGray5), lineWidth: 14)
+            .frame(width: 100, height: 100)
+            .overlay (
+                Circle()
+                    .trim(from: 0, to: 0.3)
+                    .stroke(Color.green, lineWidth: 5)
+                    .frame(width: 100, height: 100)
+                    .rotationEffect(isLoading ? .degrees(360) : .zero)
+                    .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false))
+                    .onAppear() {
+                        isLoading = true
+                    }
             )
-            .onTapGesture {
-                withAnimation(.spring(response: 0.3, dampingFraction: 0.3, blendDuration: 0.3)) {
-                    heartSizeChanged.toggle()
-
-                }
-                circleColorChanged.toggle()
-                heartColorChanged.toggle()
-
-            }
-            
+        
+        
     }
 }
 
