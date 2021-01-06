@@ -11,23 +11,27 @@ struct ContentView: View {
     @State private var isLoading = false
     
     var body: some View {
-        
-        Circle()
-            .stroke(Color(.systemGray5), lineWidth: 14)
-            .frame(width: 100, height: 100)
-            .overlay (
-                Circle()
-                    .trim(from: 0, to: 0.3)
-                    .stroke(Color.green, lineWidth: 5)
-                    .frame(width: 100, height: 100)
-                    .rotationEffect(isLoading ? .degrees(360) : .zero)
-                    .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false))
-                    .onAppear() {
-                        isLoading = true
-                    }
-            )
-        
-        
+       
+        VStack {
+            Text("Loading")
+                .font(.system(size: 25, weight: .bold, design: .rounded))
+            
+            RoundedRectangle(cornerRadius: 5)
+                .frame(width: 250, height:7)
+                .padding()
+                .foregroundColor(Color(.systemGray5))
+                .overlay (
+                    RoundedRectangle(cornerRadius: 5)
+                        .frame(width: 30, height: 7)
+                        .foregroundColor(.green)
+                        .offset(x: isLoading ? 110 : -110)
+                        .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false))
+                )
+                .onAppear() {
+                    isLoading = true
+            }
+        }
+       
     }
 }
 
