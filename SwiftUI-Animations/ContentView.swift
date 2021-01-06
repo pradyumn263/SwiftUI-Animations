@@ -9,26 +9,29 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isLoading = false
+    @State private var progress: CGFloat = 0.0
     
     var body: some View {
        
-        VStack {
-            Text("Loading")
-                .font(.system(size: 25, weight: .bold, design: .rounded))
-            
-            RoundedRectangle(cornerRadius: 5)
-                .frame(width: 250, height:7)
-                .padding()
-                .foregroundColor(Color(.systemGray5))
-                .overlay (
-                    RoundedRectangle(cornerRadius: 5)
-                        .frame(width: 30, height: 7)
-                        .foregroundColor(.green)
-                        .offset(x: isLoading ? 110 : -110)
-                        .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false))
-                )
-                .onAppear() {
-                    isLoading = true
+        ZStack {
+            Text("\(Int(progress*100))%")
+                .font(.system(.title, design: .rounded))
+                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+            Circle()
+                .stroke(Color(.systemGray5), lineWidth: 10)
+                .frame(width: 150, height: 150)
+            Circle()
+                .trim(from: 0, to: progress)
+                .stroke(Color.green, lineWidth: 10)
+                .frame(width: 150, height: 150)
+                .rotationEffect(.degrees(-90))
+        }
+        .onAppear() {
+            Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
+                progress += 0.05
+                if progress >= 1.0 {
+                    timer.invalidate()
+                }
             }
         }
        
