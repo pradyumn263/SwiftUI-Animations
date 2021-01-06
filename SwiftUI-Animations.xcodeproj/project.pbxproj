@@ -11,6 +11,7 @@
 		79C60ED925A5A783001CA180 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C60ED825A5A783001CA180 /* ContentView.swift */; };
 		79C60EDB25A5A784001CA180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79C60EDA25A5A784001CA180 /* Assets.xcassets */; };
 		79C60EDE25A5A784001CA180 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79C60EDD25A5A784001CA180 /* Preview Assets.xcassets */; };
+		79C60EE725A5F20F001CA180 /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C60EE625A5F20F001CA180 /* RecordingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		79C60EDA25A5A784001CA180 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79C60EDD25A5A784001CA180 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		79C60EDF25A5A784001CA180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79C60EE625A5F20F001CA180 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				79C60ED625A5A783001CA180 /* SwiftUI_AnimationsApp.swift */,
 				79C60ED825A5A783001CA180 /* ContentView.swift */,
+				79C60EE625A5F20F001CA180 /* RecordingView.swift */,
 				79C60EDA25A5A784001CA180 /* Assets.xcassets */,
 				79C60EDF25A5A784001CA180 /* Info.plist */,
 				79C60EDC25A5A784001CA180 /* Preview Content */,
@@ -140,6 +143,7 @@
 			files = (
 				79C60ED925A5A783001CA180 /* ContentView.swift in Sources */,
 				79C60ED725A5A783001CA180 /* SwiftUI_AnimationsApp.swift in Sources */,
+				79C60EE725A5F20F001CA180 /* RecordingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

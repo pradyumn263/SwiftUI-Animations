@@ -13,26 +13,18 @@ struct ContentView: View {
     
     var body: some View {
        
-        ZStack {
-            Text("\(Int(progress*100))%")
-                .font(.system(.title, design: .rounded))
-                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-            Circle()
-                .stroke(Color(.systemGray5), lineWidth: 10)
-                .frame(width: 150, height: 150)
-            Circle()
-                .trim(from: 0, to: progress)
-                .stroke(Color.green, lineWidth: 10)
-                .frame(width: 150, height: 150)
-                .rotationEffect(.degrees(-90))
+        
+        HStack {
+            ForEach (0...4, id: \.self) { index in
+                Circle()
+                    .frame(width: 10, height: 10, alignment: .center)
+                    .foregroundColor(.green)
+                    .scaleEffect(isLoading ? 0 : 1)
+                    .animation(Animation.linear(duration: 0.6).repeatForever(autoreverses: true).delay(0.2 * Double(index)))
+            }
         }
         .onAppear() {
-            Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
-                progress += 0.05
-                if progress >= 1.0 {
-                    timer.invalidate()
-                }
-            }
+            isLoading = true
         }
        
     }
